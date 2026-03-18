@@ -1,0 +1,25 @@
+device: "cuda"
+
+paths:
+  base_data_dir: "data/How2Sign/sentence_level"
+  rgb_front_clips_dir: "rgb_front/raw_videos"
+  text_realigned_dir: "text/en/raw_text/re_aligned"
+  train_video_dir: "data/How2Sign/sentence_level/train/rgb_front/raw_videos"
+  validation_video_dir: "data/How2Sign/sentence_level/val/rgb_front/raw_videos"
+  test_video_dir: "data/How2Sign/sentence_level/test/rgb_front/raw_videos"
+  train_csv_path: "data/How2Sign/sentence_level/train/text/en/raw_text/re_aligned/how2sign_realigned_train.csv"
+  validation_csv_path: "data/How2Sign/sentence_level/val/text/en/raw_text/re_aligned/how2sign_realigned_val.csv"
+  test_csv_path: "data/How2Sign/sentence_level/test/text/en/raw_text/re_aligned/how2sign_realigned_test.csv"
+  checkpoints_path: "checkpoints"
+
+params:
+  max_frame_size: 300
+  max_token_length: 300
+
+models:
+  dinov2_dim: 1024
+  
+training:  
+  batch_size: 32
+  learning_rate: 1e-4
+  epochs: 10

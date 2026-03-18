@@ -1,0 +1,56 @@
+[project]
+name = "sign-language-transcription"
+version = "0.1.0"
+description = "A  vision-to-text model combining vision transformer with a language model for transcribing sign language from video input."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "av>=14.3.0",
+    "evaluate>=0.4.5",
+    "matplotlib>=3.10.1",
+    "numpy>=1.26.4",
+    "opencv-python>=4.11.0.86",
+    "pandas>=2.2.3",
+    "python-dotenv>=1.1.0",
+    "requests>=2.32.3",
+    "rouge-score>=0.1.2",
+    "ruff>=0.11.8",
+    "torch>=2.7.0",
+    "torchaudio>=2.7.0",
+    "torcheval>=0.0.7",
+    "torchvision>=0.22.0",
+    "transformers>=4.51.3",
+    "wandb>=0.19.11",
+    "xformers>=0.0.30",
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true
+
+[[tool.uv.index]]
+name = "pytorch-cu118"
+url = "https://download.pytorch.org/whl/cu118"
+explicit = true
+
+[tool.uv.sources]
+torch = [
+  { index = "pytorch-cu118", marker = "sys_platform == 'win32'" },
+  { index = "pytorch-cu126", marker = "sys_platform == 'linux'" }
+]
+
+torchvision = [
+  { index = "pytorch-cu118", marker = "sys_platform == 'win32'" },
+  { index = "pytorch-cu126", marker = "sys_platform == 'linux'" }
+]
+
+torchaudio = [
+  { index = "pytorch-cu118", marker = "sys_platform == 'win32'" },
+  { index = "pytorch-cu126", marker = "sys_platform == 'linux'" }
+]
+
+xformers = [
+  { index = "pytorch-cu118", marker = "sys_platform == 'win32'" },
+  { index = "pytorch-cu126", marker = "sys_platform == 'linux'" }
+]
